@@ -1,21 +1,10 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-
-
-
-@app.route('/home')
-def home():
-    return ('<html><p>Home Page</p></html>')
-
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+<!doctype html>
+<html>
+<title>Home</title>
+   
+<body>
+    <h1>Welcome to the Fortune App</h1>
+    <p>Discover what the future holds for you with our Fortune App. Click the link below to reveal a personalized fortune just for you!</p>
+    <a href="/fortune">Tell me my fortune</a>
+</body>
+</html>
