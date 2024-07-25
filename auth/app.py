@@ -6,17 +6,18 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "super-secret-key"
 
 firebaseConfig = {
-  "apiKey": "AIzaSyC5LJTPAhVruC63STy7zOboBEP722vVilY",
-  "authDomain": "authenticationfacebook-62c9c.firebaseapp.com",
-  "projectId": "authenticationfacebook-62c9c",
-  "storageBucket": "authenticationfacebook-62c9c.appspot.com",
-  "messagingSenderId": "372646840186",
-  "appId": "1:372646840186:web:294cc7d04536f3a7e338c3",
-  "measurementId": "G-G35T7N123P",
-  "databaseURL": ""
+  "apiKey": "AIzaSyCbgHgrptDTjD9Mh1Pf_U8zBkMUIk_QK-8",
+  "authDomain": "labbb-2e171.firebaseapp.com",
+  "projectId": "labbb-2e171",
+  "storageBucket": "labbb-2e171.appspot.com",
+  "messagingSenderId": "1061000358749",
+  "appId": "1:1061000358749:web:9e25196a54b6b80c2f16b4",
+  "measurementId": "G-MBJPYJ6EMP",
+  "databaseURL":"https://labbb-2e171-default-rtdb.europe-west1.firebasedatabase.app//"
 }
 
 firebase = pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
 auth = firebase.auth()
 
 @app.route('/', methods=['GET', 'POST'])
@@ -26,12 +27,20 @@ def signup():
     else:  
         email = request.form['email']
         password = request.form['password']
+        username = request.form['username']
+        full_name = request.form['full_name']
         try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            login_session['quotes'] = []
+            user = auth.create_user_with_email_and_password(email, password)
+            user_id = user['localId']
+            db.child("users").child(user_id).set({
+                "full_name": full_name,
+                "email": email,
+                "username": username
+            })
+            login_session['user'] = user
             return redirect(url_for('home'))
-        except:
-            error = "Signup failed. Try again."
+        except Exception as e:
+            error = e
             return render_template("signup.html", error=error)
 
 @app.route('/signin', methods=['GET', 'POST'])
@@ -44,19 +53,24 @@ def signin():
         try:
             login_session['user'] = auth.sign_in_with_email_and_password(email, password)
             if 'quotes' not in login_session:
-                login_session['quotes'] = []
-            return redirect(url_for('home'))
+                return redirect(url_for('home'))
         except:
             error = "Sign in failed. Try again."
             return render_template("signin.html", error=error)
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    if request.method == 'GET':
+    if login_session['user'] == None:
+        return redirect(url_for('signup'))
+    if request.method == "GET":
         return render_template("home.html")
+    elif request.form['action'] =='signout':
+        login_session['user'] = None
+        auth.current_user = None
+        return redirect(url_for('signin'))
     else:
-        quote = request.form['quote']
-        login_session['quotes'].append(quote)
+        qoute = {"text":request.form['quote'],"said_by":request.form['speaker'],"uid":login_session['user']['localId']}
+        db.child("Qoutes").push(qoute)
         return redirect(url_for('thanks'))
 
 @app.route('/thanks')
@@ -65,8 +79,8 @@ def thanks():
 
 @app.route('/display')
 def display():
-    quotes = login_session.get('quotes', [])
-    return render_template('display.html', quotes=quotes)
+    Qoutes=db.child("Qoutes").get().val()
+    return render_template("display.html",qoutes=Qoutes)
 
 @app.route('/signout')
 def signout():
@@ -75,4 +89,4 @@ def signout():
     return redirect(url_for('signin'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port= 5001)

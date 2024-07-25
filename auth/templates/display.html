@@ -7,9 +7,9 @@
 <body>
     <h1>Quotes</h1>
     <ul>
-        {% for quote in quotes %}
-        <li>{{ quote }}</li>
-        {% endfor %}
+        {% for qoute in qoutes.values() %}
+        <li>{{qoute['said_by']}} said {{qoute['text']}}</li>
+      {% endfor %}
     </ul>
     <p><a href="/home">Back to Home</a></p>
 </body>
