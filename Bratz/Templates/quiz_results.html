@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Results - Bratz Fashion App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Quiz Results{% endblock %}
+
+{% block content %}
+<div class="results-container">
+
+    <h2>Your Bratz Character</h2>    
+    
+    <p>{{ character }}</p>
+    <a href="{{ url_for('quiz') }}" class="button">Retake Quiz</a>
+</div>
+{% endblock %}
+
+</body>
+</html>

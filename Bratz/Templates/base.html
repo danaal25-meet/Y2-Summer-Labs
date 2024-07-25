@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Bratz Fashion App{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://media4.giphy.com/media/LbWRdSkOjBXvVnc8g5/giphy_s.gif?cid=6c09b952xyit37528aes4a4l7zgu95gxczxomi434om5mv2l&ep=v1_internal_gif_by_id&rid=giphy_s.gif&ct=s" alt="Bratz Logo" class="bratz-logo">
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+            <li><a href="{{ url_for('stories') }}">Fashion Stories</a></li>
+            
+            {% if 'user' in session %}
+                <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

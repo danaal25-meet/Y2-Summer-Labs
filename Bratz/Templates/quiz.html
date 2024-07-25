@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Quiz - Bratz Fashion App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Fashion Quiz{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <h2>Fashion Quiz</h2>
+    <form method="POST" action="{{ url_for('quiz') }}">
+        {% for index in range(4) %}
+    
+            <div class="question">
+    
+                <p>{{ questions[index].question }}</p>
+                
+                {% for option in questions[index].options %}
+                    <label>
+                        <input type="radio" name={{index}} value="{{ option }}" required>
+                        {{ option }}
+                    </label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://wallpapers.com/images/hd/black-bratz-aesthetic-y0vrqtauzm8cjqug.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(221, 160, 221, 0.9); 
+    padding: 10px 20px;
+}
+
+.navbar .bratz-logo {
+    height: 50px;
+    width: auto;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h2 {
+    color: #DDA0DD; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #DDA0DD; 
+}
+
+button {
+    background-color: #DDA0DD; 
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #E6E6FA; 
+}
+
+.home-container, .quiz-container, .results-container, .fashion-stories-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.welcome-message {
+    color: #DDA0DD; 
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button {
+    background-color: #DDA0DD; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #E6E6FA; 
+}
+
+.error {
+    color: red;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.story {
+    margin-bottom: 20px;
+}
+
+.story h3 {
+    color: #DDA0DD; 
+}
+
+.story p {
+    font-size: 1.1em;
+}
