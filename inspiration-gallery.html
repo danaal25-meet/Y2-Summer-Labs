@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspiration Gallery - Bratz Fashion App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+    
+    {% block title %}Inspiration Gallery{% endblock %}
+    
+    {% block content %}
+    <div class="inspiration-gallery">
+        <div class="outfit">
+            <img src="https://via.placeholder.com/200" alt="Outfit 1">
+            <p>Outfit 1 Description</p>
+        </div>
+        <div class="outfit">
+            <img src="https://via.placeholder.com/200" alt="Outfit 2">
+            <p>Outfit 2 Description</p>
+        </div>
+        <!-- Add more outfits as needed -->
+    </div>
+    {% endblock %}
+</body>
+</html>

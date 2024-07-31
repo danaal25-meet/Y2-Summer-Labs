@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Stories - Bratz Fashion App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+    
+    {% block title %}Fashion Stories{% endblock %}
+    
+    {% block content %}
+    <div class="fashion-stories-container">
+        <h2>Fashion Stories</h2>
+        <div class="story">
+            <h3>Story 1: The Evolution of Street Style</h3>
+            <p>From the gritty streets of NYC to the runways of Paris, street style has taken over the fashion world. Discover the journey of this influential trend...</p>
+        </div>
+        <div class="story">
+            <h3>Story 2: Vintage Revival</h3>
+            <p>Fashion always comes full circle. Explore how vintage styles are making a comeback and influencing today's trends...</p>
+        </div>
+        <div class="story">
+            <h3>Story 3: Sustainable Fashion</h3>
+            <p>Sustainability is not just a trend but a movement. Learn about the designers and brands that are leading the charge towards eco-friendly fashion...</p>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

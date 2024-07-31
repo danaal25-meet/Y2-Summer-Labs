@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Stories - Bratz Fashion App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+    
+    {% block title %}Fashion Stories{% endblock %}
+    
+    {% block content %}
+    <div class="fashion-stories-container">
+        <h2>Fashion Stories</h2>
+        
+        <div class="story">
+            <h3>The Fabulous Fashion Show</h3>
+            <p>When the Bratz girls were invited to the most glamorous fashion show of the year, they knew they had to bring their A-game. Jade dazzled in a futuristic metallic jumpsuit, Yasmin turned heads in a flowing bohemian dress, Cloe's sporty chic ensemble caught everyone's eye, and Sasha rocked a bold, edgy look. The crowd went wild for their creativity, and the Bratz girls were hailed as the true stars of the show!</p>
+        </div>
+        
+        <div class="story">
+            <h3>Mix & Match Magic</h3>
+            <p>One day, the Bratz girls decided to have a mix-and-match fashion challenge. Each girl picked out random pieces from the others' wardrobes and created a new, unique outfit. Jade's mix of glam and punk was a hit, Yasmin's fusion of vintage and modern was a nostalgic throwback, Cloe's sporty and casual combo was comfy and cool, and Sasha's blend of bright colors and patterns was an instant trendsetter. Their creativity shone through, proving that fashion is all about expressing yourself!</p>
+        </div>
+        
+        <div class="story">
+            <h3>The Eco-Friendly Fashion Line</h3>
+            <p>In an effort to promote sustainability, the Bratz girls teamed up to design an eco-friendly fashion line. Using recycled materials and eco-conscious fabrics, they created stylish outfits that were both fashionable and kind to the planet. Their new collection was a huge success, earning praise from fashion critics and environmentalists alike. The Bratz girls proved that you can look great while making a positive impact on the world.</p>
+        </div>
+        
+        <div class="story">
+            <h3>Bratz Goes Retro</h3>
+            <p>When the Bratz girls decided to embrace retro fashion, they delved into the vibrant trends of the past decades. Jade rocked a '70s disco look with bell-bottoms and a sequined top, Yasmin embraced '80s glam with bold colors and big hair, Cloe went for '90s grunge with flannel shirts and ripped jeans, and Sasha channeled '60s mod with a sleek mini dress and knee-high boots. The throwback styles were a hit at their retro-themed party, bringing a nostalgic vibe to the present.</p>
+        </div>
+        
+        <div class="story">
+            <h3>The Ultimate Fashion Battle</h3>
+            <p>In the ultimate fashion showdown, the Bratz girls faced off in a friendly competition to create the most stunning outfit from a mystery box of random items. Jade combined elegant fabrics with edgy accessories, Yasmin crafted a romantic, vintage-inspired look, Cloe put together a sporty chic ensemble, and Sasha created a daring, avant-garde outfit. The judges were amazed by their ingenuity and flair, declaring all four girls winners in their own right.</p>
+        </div>
+
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -33,9 +33,22 @@ def hello():
     if request.method == 'POST':
         name = request.form['tt']
         return redirect(url_for('fortune', n=name))
-    return render_template("hello.html")
+    return render_template("home")
+return render_template("login.html")
 
-@app.route('/fortune/<n>')
+@app.route("/home")
+def home():
+    if 'name' not in session:
+        return redirect(url_for(login))
+    name = session['name']
+    return render_template("home.html", name=name)
+
+@app.route('/fortune')
+def fortune():
+    if 'name' not in session:s
+        return redirect(url_for('login'))
+
+@app.route('/fortune')
 def fortune(n):
     if len(n) < 10:
         random_fortune = fortunes[len(n)]
